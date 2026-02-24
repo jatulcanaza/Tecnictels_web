@@ -3,7 +3,7 @@ import { site } from "../../content/site";
 
 function IconWrap({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-neutral-200 bg-white text-neutral-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:translate-y-0">
+    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border theme-border theme-surface text-neutral-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:translate-y-0 dark:text-white dark:hover:bg-white/10">
       {children}
     </span>
   );
@@ -86,7 +86,7 @@ function FooterLink({ to, children }: { to: string; children: React.ReactNode })
   return (
     <NavLink
       to={to}
-      className="group relative inline-flex text-sm text-neutral-600 transition-colors duration-200 hover:text-neutral-950"
+      className="group relative inline-flex text-sm theme-muted transition-colors duration-200 hover:text-neutral-950 dark:hover:text-white"
     >
       {children}
       <span className="absolute -bottom-1 left-0 h-[2px] w-0 rounded-full bg-gradient-to-r from-emerald-500 to-orange-500 transition-all duration-300 group-hover:w-full" />
@@ -101,7 +101,7 @@ export function Footer() {
   const mapsDirections = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(site.address)}`;
 
   return (
-    <footer className="border-t border-neutral-200 bg-white">
+    <footer className="border-t theme-border theme-surface">
       {/* Línea superior degradada (sutil) */}
       <div className="h-1 w-full bg-gradient-to-r from-emerald-500/70 via-emerald-500/20 to-orange-500/70" />
 
@@ -138,7 +138,7 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="text-sm font-semibold text-neutral-900">Páginas</p>
+            <p className="text-sm font-semibold text-neutral-900 dark:text-white">Páginas</p>
             <ul className="mt-4 space-y-3">
               <li><FooterLink to="/">Inicio</FooterLink></li>
               <li><FooterLink to="/servicios">Servicios</FooterLink></li>
@@ -150,7 +150,7 @@ export function Footer() {
 
           {/* Services quick list */}
             <div>
-            <p className="text-sm font-semibold text-neutral-900">Servicios</p>
+            <p className="text-sm font-semibold text-neutral-900 dark:text-white">Servicios</p>
             <ul className="mt-4 space-y-3">
                 <li><FooterLink to="/servicios#cctv">CCTV</FooterLink></li>
                 <li><FooterLink to="/servicios#control-acceso">Control de acceso</FooterLink></li>
@@ -171,7 +171,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-sm font-semibold text-neutral-900">Contacto</p>
+            <p className="text-sm font-semibold text-neutral-900 dark:text-white">Contacto</p>
 
             <ul className="mt-4 space-y-4 text-sm text-neutral-600">
               <li className="flex items-start gap-3">

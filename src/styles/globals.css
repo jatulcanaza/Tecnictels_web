@@ -3,3 +3,32 @@
 @tailwind utilities;
 
 html, body { height: 100%; }
+
+:root {
+  /* light */
+  --bg: 255 255 255;
+  --surface: 255 255 255;
+  --fg: 9 9 11;          /* neutral-950 */
+  --muted: 82 82 91;     /* neutral-600 */
+  --border: 228 228 231; /* neutral-200 */
+}
+
+.dark{
+  --bg: 17 19 23;        /* slate-ish (suave) */
+  --surface: 26 28 33;   /* cards */
+  --fg: 244 244 245;     /* texto principal */
+  --muted: 180 185 193;  /* texto secundario */
+  --border: 55 65 81;    /* borde suave */
+}
+
+/* aplica a TODO el sitio */
+html, body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+/* helpers */
+.theme-bg { background-color: rgb(var(--bg)); }
+.theme-surface { background-color: rgb(var(--surface)); }
+.theme-muted { color: rgb(var(--muted)); }
+.theme-border { border-color: rgb(var(--border)); }
