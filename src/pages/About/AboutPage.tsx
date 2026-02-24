@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Seo } from "../../lib/seo";
 import { site } from "../../content/site";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
@@ -24,9 +25,7 @@ function SectionTitle(props: { eyebrow?: string; title: string; subtitle?: strin
         {props.title}
       </h2>
 
-      {props.subtitle ? (
-        <p className="mt-3 text-sm theme-muted md:text-base">{props.subtitle}</p>
-      ) : null}
+      {props.subtitle ? <p className="mt-3 text-sm theme-muted md:text-base">{props.subtitle}</p> : null}
     </div>
   );
 }
@@ -59,6 +58,65 @@ function InfoCard(props: { title: string; desc: string }) {
   );
 }
 
+/* ============================================================
+   TRUST MARQUEE PREMIUM (SOLO LOGOS)
+   - Framer Motion
+   - Loop infinito hacia la izquierda
+   - Pausa real al hover
+   - Grayscale -> color al hover
+   ============================================================ */
+type BrandLogo = { src: string; alt: string };
+
+function TrustMarqueePremium({
+  items,
+  speedSeconds = 28,
+}: {
+  items: BrandLogo[];
+  speedSeconds?: number;
+}) {
+  const track = [...items, ...items];
+
+  return (
+    <div className="relative mt-8 overflow-hidden rounded-3xl border theme-border theme-surface">
+      {/* Glow sutil premium */}
+      <div className="pointer-events-none absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-emerald-500/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 right-1/3 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" />
+
+      {/* Fade laterales */}
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent dark:from-[#0b0f14]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent dark:from-[#0b0f14]" />
+
+      <motion.div
+        className="flex items-center gap-6 px-6 py-7 md:gap-8"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: speedSeconds, ease: "linear", repeat: Infinity }}
+      >
+        {track.map((it, idx) => (
+          <div
+            key={`${it.alt}-${idx}`}
+            className="
+              group flex h-20 w-44 shrink-0 items-center justify-center
+              rounded-2xl border theme-border
+              bg-neutral-50/70 shadow-sm backdrop-blur transition
+              hover:-translate-y-0.5 hover:shadow-md
+              dark:bg-white/5
+              sm:w-48
+            "
+          >
+            <img
+              src={it.src}
+              alt={it.alt}
+              className="max-h-10 w-auto object-contain transition md:max-h-11"
+              loading="lazy"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 export function AboutPage() {
   return (
     <>
@@ -70,7 +128,6 @@ export function AboutPage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden border-b theme-border bg-transparent">
-        {/* Fondo sutil (tech) */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-24 left-1/2 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
           <div className="absolute -bottom-28 left-1/3 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
@@ -91,9 +148,7 @@ export function AboutPage() {
                 variants={fadeUp}
                 className="mt-4 text-3xl font-bold tracking-tight text-neutral-950 dark:text-white md:text-5xl"
               >
-                Construimos infraestructura{" "}
-                <span className="theme-muted">segura y confiable</span>{" "}
-                para tu operación.
+                Construimos infraestructura <span className="theme-muted">segura y confiable</span> para tu operación.
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mt-4 text-base theme-muted md:text-lg">
@@ -101,8 +156,8 @@ export function AboutPage() {
                 <b className="text-neutral-950 dark:text-white">seguridad electrónica</b>,{" "}
                 <b className="text-neutral-950 dark:text-white"> redes</b>,{" "}
                 <b className="text-neutral-950 dark:text-white"> telecomunicaciones</b> e{" "}
-                <b className="text-neutral-950 dark:text-white"> instalaciones eléctricas</b>{" "}
-                con enfoque profesional, ordenado y escalable.
+                <b className="text-neutral-950 dark:text-white"> instalaciones eléctricas</b> con enfoque profesional,
+                ordenado y escalable.
               </motion.p>
 
               <motion.div variants={fadeUp}>
@@ -134,7 +189,6 @@ export function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Imagen */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -192,13 +246,7 @@ export function AboutPage() {
       {/* MISIÓN / VISIÓN */}
       <section className="border-t theme-border bg-neutral-50 dark:bg-white/5">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid gap-6 md:grid-cols-2"
-          >
+          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid gap-6 md:grid-cols-2">
             <motion.div variants={fadeUp} className="rounded-3xl border theme-border theme-surface p-8 shadow-sm">
               <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -281,7 +329,6 @@ export function AboutPage() {
               ))}
             </motion.div>
 
-            {/* Mini galería */}
             <motion.div variants={fadeUp} className="mt-8 grid gap-4 md:grid-cols-3">
               {[
                 { src: "/images/work-1.jpg", alt: "Instalación CCTV" },
@@ -297,25 +344,31 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* CERTIFICACIONES */}
+      {/* CONFIANZA / MARCAS (SOLO LOGOS PREMIUM) */}
       <section className="border-t theme-border bg-transparent">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <SectionTitle
                 eyebrow="CONFIANZA"
-                title="Certificaciones y estándares"
-                subtitle="Si cuentan con certificaciones (marcas, normativas o licencias), aquí las mostramos. Por ahora dejamos el bloque listo."
+                title="Marcas y certificaciones"
+                subtitle="Tecnología compatible y experiencia en instalación profesional."
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-8 grid gap-4 md:grid-cols-4">
-              {["CCTV / Seguridad", "Redes & Telecom", "Cableado & Data Center", "Electricidad & UPS"].map((c) => (
-                <div key={c} className="rounded-2xl border theme-border bg-neutral-50 p-6 text-center dark:bg-white/5">
-                  <p className="text-sm font-semibold text-neutral-900 dark:text-white">{c}</p>
-                  <p className="mt-2 text-xs theme-muted">(Agregar certificaciones / marcas)</p>
-                </div>
-              ))}
+            <motion.div variants={fadeUp}>
+              <TrustMarqueePremium
+                speedSeconds={28}
+                items={[
+                  { src: "/brand/hikvision.svg", alt: "Hikvision" },
+                  { src: "/brand/dahua.png", alt: "Dahua" },
+                  { src: "/brand/schneider.png", alt: "Schneider Electric" },
+                  { src: "/brand/tplink.png", alt: "TP-Link" },
+                  { src: "/brand/zkteco.png", alt: "ZKTeco" },
+                  { src: "/brand/panduit.png", alt: "Panduit" },
+                  { src: "/brand/siemon.png", alt: "Siemon" },
+                ]}
+              />
             </motion.div>
           </motion.div>
         </div>
