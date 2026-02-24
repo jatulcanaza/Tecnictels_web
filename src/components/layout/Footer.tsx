@@ -3,7 +3,12 @@ import { site } from "../../content/site";
 
 function IconWrap({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border theme-border theme-surface text-neutral-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:translate-y-0 dark:text-white dark:hover:bg-white/10">
+    <span
+      className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border theme-border theme-surface
+      text-neutral-800 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-emerald-200
+      hover:bg-emerald-50 hover:text-emerald-700 active:translate-y-0
+      dark:text-white dark:hover:bg-white/10"
+    >
       {children}
     </span>
   );
@@ -102,36 +107,53 @@ export function Footer() {
 
   return (
     <footer className="border-t theme-border theme-surface">
-      {/* Línea superior degradada (sutil) */}
       <div className="h-1 w-full bg-gradient-to-r from-emerald-500/70 via-emerald-500/20 to-orange-500/70" />
 
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand */}
           <div>
+            {/* Modo claro */}
             <img
-              src="/brand/logo.png"
+              src="/brand/logo-footer-light.png"
               alt="Tecnictels"
-              className="w-44 max-h-12 object-contain"
+              className="block dark:hidden w-56 max-h-30 object-contain"
               loading="lazy"
             />
-            <p className="mt-4 text-sm text-neutral-600">
-              Soluciones profesionales en seguridad electrónica, redes, telecomunicaciones e instalaciones eléctricas en {site.city}, {site.country}.
+
+            {/* Modo oscuro (más contraste) */}
+            <img
+              src="/brand/logo-footer-dark.png"
+              alt="Tecnictels"
+              className="hidden dark:block w-56 max-h-30 object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.35)]"
+              loading="lazy"
+            />
+
+            <p className="mt-4 text-sm theme-muted">
+              Soluciones profesionales en seguridad electrónica, redes, telecomunicaciones e instalaciones eléctricas en{" "}
+              {site.city}, {site.country}.
             </p>
 
-            {/* Social icons */}
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={site.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook">
-                <IconWrap><IconFacebook /></IconWrap>
+                <IconWrap>
+                  <IconFacebook />
+                </IconWrap>
               </a>
               <a href={site.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
-                <IconWrap><IconInstagram /></IconWrap>
+                <IconWrap>
+                  <IconInstagram />
+                </IconWrap>
               </a>
               <a href={wa} target="_blank" rel="noreferrer" aria-label="WhatsApp">
-                <IconWrap><IconWhatsApp /></IconWrap>
+                <IconWrap>
+                  <IconWhatsApp />
+                </IconWrap>
               </a>
               <a href={mail} aria-label="Correo">
-                <IconWrap><IconMail /></IconWrap>
+                <IconWrap>
+                  <IconMail />
+                </IconWrap>
               </a>
             </div>
           </div>
@@ -140,66 +162,99 @@ export function Footer() {
           <div>
             <p className="text-sm font-semibold text-neutral-900 dark:text-white">Páginas</p>
             <ul className="mt-4 space-y-3">
-              <li><FooterLink to="/">Inicio</FooterLink></li>
-              <li><FooterLink to="/servicios">Servicios</FooterLink></li>
-              <li><FooterLink to="/proyectos">Proyectos</FooterLink></li>
-              <li><FooterLink to="/nosotros">Nosotros</FooterLink></li>
-              <li><FooterLink to="/contacto">Contacto</FooterLink></li>
+              <li>
+                <FooterLink to="/">Inicio</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios">Servicios</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/proyectos">Proyectos</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/nosotros">Nosotros</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/contacto">Contacto</FooterLink>
+              </li>
             </ul>
           </div>
 
-          {/* Services quick list */}
-            <div>
+          {/* Services */}
+          <div>
             <p className="text-sm font-semibold text-neutral-900 dark:text-white">Servicios</p>
             <ul className="mt-4 space-y-3">
-                <li><FooterLink to="/servicios#cctv">CCTV</FooterLink></li>
-                <li><FooterLink to="/servicios#control-acceso">Control de acceso</FooterLink></li>
-                <li><FooterLink to="/servicios#redes-telecom">Redes y telecom</FooterLink></li>
-                <li><FooterLink to="/servicios#deteccion-incendios">Detección de incendios</FooterLink></li>
-                <li><FooterLink to="/servicios#instalaciones-electricas">Instalaciones eléctricas</FooterLink></li>
+              <li>
+                <FooterLink to="/servicios#cctv">CCTV</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios#control-acceso">Control de acceso</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios#redes-telecom">Redes y telecom</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios#deteccion-incendios">Detección de incendios</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios#instalaciones-electricas">Instalaciones eléctricas</FooterLink>
+              </li>
             </ul>
 
             <a
-                href={wa}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-95 active:scale-[0.99]"
+              href={wa}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-95 active:scale-[0.99]"
             >
-                Cotizar por WhatsApp
+              Cotizar por WhatsApp
             </a>
-            </div>
+          </div>
 
           {/* Contact */}
           <div>
             <p className="text-sm font-semibold text-neutral-900 dark:text-white">Contacto</p>
 
-            <ul className="mt-4 space-y-4 text-sm text-neutral-600">
+            <ul className="mt-4 space-y-4 text-sm theme-muted">
               <li className="flex items-start gap-3">
-                <span className="mt-0.5 text-neutral-700"><IconLocation /></span>
-                <a href={mapsDirections} target="_blank" rel="noreferrer" className="transition hover:text-neutral-950">
+                <span className="mt-0.5 text-neutral-700 dark:text-white/80">
+                  <IconLocation />
+                </span>
+                <a
+                  href={mapsDirections}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition hover:text-neutral-950 dark:hover:text-white"
+                >
                   {site.address}
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <span className="text-neutral-700"><IconPhone /></span>
-                <a href={tel} className="transition hover:text-neutral-950">
+                <span className="text-neutral-700 dark:text-white/80">
+                  <IconPhone />
+                </span>
+                <a href={tel} className="transition hover:text-neutral-950 dark:hover:text-white">
                   {site.phoneLocal}
                 </a>
               </li>
 
               <li className="flex items-center gap-3">
-                <span className="text-neutral-700"><IconMail /></span>
-                <a href={mail} className="transition hover:text-neutral-950">
+                <span className="text-neutral-700 dark:text-white/80">
+                  <IconMail />
+                </span>
+                <a href={mail} className="transition hover:text-neutral-950 dark:hover:text-white">
                   {site.email}
                 </a>
               </li>
             </ul>
 
-            <p className="mt-6 text-xs font-semibold text-neutral-500">{site.hoursLabel}</p>
+            <p className="mt-6 text-xs font-semibold text-neutral-500 dark:text-white/60">{site.hoursLabel}</p>
 
-            {/* Badge sutil */}
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700">
+            <div
+              className="mt-4 inline-flex items-center gap-2 rounded-full border theme-border bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700
+              dark:bg-white/5 dark:text-white/80"
+            >
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
               <span className="h-2 w-2 rounded-full bg-orange-500" />
               Atención profesional
@@ -207,12 +262,11 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-neutral-200 pt-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
-          <p className="text-xs text-neutral-500">
+        <div className="mt-12 flex flex-col gap-3 border-t theme-border pt-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <p className="text-xs text-neutral-500 dark:text-white/60">
             © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-neutral-500">
+          <p className="text-xs text-neutral-500 dark:text-white/60">
             {site.city}, {site.country} · Seguridad · Redes · Telecom · Electricidad
           </p>
         </div>
