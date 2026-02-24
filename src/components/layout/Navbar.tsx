@@ -8,14 +8,14 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-neutral-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <NavLink to="/" className="flex items-center gap-3">
+        
+        <NavLink to="/" className="flex items-center">
           <img
             src="/brand/logo.png"
             alt="Tecnictels"
-            className="h-8 w-auto"
+            className="w-48 max-h-10 object-contain md:w-44"
             loading="eager"
           />
-          <span className="text-sm font-semibold tracking-wide">TECNICTELS</span>
         </NavLink>
 
         <nav className="hidden items-center gap-6 md:flex">

@@ -5,11 +5,14 @@ export function Footer() {
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-3">
-            <img src="/brand/logo.png" alt="Tecnictels" className="h-8 w-auto" />
-            <span className="text-sm font-semibold">TECNICTELS</span>
-          </div>
-          <p className="mt-3 text-sm text-neutral-600">
+          <img
+            src="/brand/logo.png"
+            alt="Tecnictels"
+            className="w-582 max-h-14 object-contain"
+            loading="lazy"
+          />
+
+          <p className="mt-4 text-sm text-neutral-600">
             Sistemas eléctricos, electrónicos, redes y telecomunicaciones en {site.city}, {site.country}.
           </p>
         </div>
