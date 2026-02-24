@@ -344,22 +344,31 @@ export function ContactPage() {
                         name="servicio"
                         required
                         defaultValue=""
-                        className="mt-2 w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition
-                        focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10
-                        dark:border-white/10 dark:bg-white/5 dark:text-white"
+                        className="
+                           mt-2 w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition
+                            text-neutral-900 appearance-none
+                            focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10
+                            dark:border-white/10 dark:bg-white/5 dark:text-white
+                            dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10
+                            dark:[color-scheme:dark]
+                          "
                       >
                         <option value="" disabled>
                           Selecciona un servicio
                         </option>
-                        <option>CCTV</option>
-                        <option>Control de acceso</option>
-                        <option>Detección de incendios</option>
-                        <option>Alarmas</option>
-                        <option>Seguridad electrónica</option>
-                        <option>Redes y telecomunicaciones</option>
-                        <option>Cableado estructurado / Data Center</option>
-                        <option>Instalaciones eléctricas</option>
-                        <option>UPS / Sistemas de tierra</option>
+
+                        <option value="CCTV">CCTV</option>
+                        <option value="Control de acceso">Control de acceso</option>
+                        <option value="Detección de incendios">Detección de incendios</option>
+                        <option value="Alarmas">Alarmas</option>
+                        <option value="Seguridad electrónica">Seguridad electrónica</option>
+                        <option value="Redes y telecomunicaciones">Redes y telecomunicaciones</option>
+                        <option value="Cableado estructurado / Data Center">Cableado estructurado / Data Center</option>
+                        <option value="Instalaciones eléctricas">Instalaciones eléctricas</option>
+                        <option value="UPS / Sistemas de tierra">UPS / Sistemas de tierra</option>
+
+                        {/* ✅ Nuevo */}
+                        <option value="Otro">Otro (especificar en el mensaje)</option>
                       </select>
                     </div>
 

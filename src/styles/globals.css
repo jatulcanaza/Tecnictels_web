@@ -32,3 +32,14 @@ html, body {
 .theme-surface { background-color: rgb(var(--surface)); }
 .theme-muted { color: rgb(var(--muted)); }
 .theme-border { border-color: rgb(var(--border)); }
+
+/* Quitar azul del sistema y usar verde */
+select option:checked {
+  background-color: #10b981 !important; /* emerald-500 */
+  color: white !important;
+}
+
+/* Scroll dropdown en algunos navegadores */
+select {
+  accent-color: #10b981;
+}
