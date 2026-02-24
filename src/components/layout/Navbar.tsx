@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useTheme } from "../../lib/useTheme"; // ajusta ruta según tu proyecto
+import { useTheme } from "../../lib/useTheme";
 
 const linkBase =
   "text-sm font-medium text-neutral-700 hover:text-neutral-950 transition dark:text-white/80 dark:hover:text-white";
@@ -38,12 +38,15 @@ export function Navbar() {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
 
+  // ✅ cambia logo según tema
+  const logoSrc = isDark ? "/brand/logo-dark.png" : "/brand/logo-light.png";
+
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b theme-border bg-white/80 backdrop-blur dark:bg-white/5">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <NavLink to="/" className="flex items-center">
           <img
-            src="/brand/logo.png"
+            src={logoSrc}
             alt="Tecnictels"
             className="w-48 max-h-10 object-contain md:w-44"
             loading="eager"
@@ -66,7 +69,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {/* Toggle theme */}
           <button
             type="button"
             onClick={toggle}
