@@ -12,14 +12,22 @@ export function Seo({ title, description, path = "/", image = "/brand/logo.png" 
   const canonical = `https://${site.domain}${path}`;
 
   const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: site.name,
-    areaServed: `${site.city}, ${site.country}`,
-    email: site.email,
-    url: canonical,
-    sameAs: [site.social.facebook, site.social.instagram],
-  };
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: site.name,
+  url: canonical,
+  email: site.email,
+  telephone: `+${site.phoneE164}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address,
+    addressLocality: site.city,
+    addressCountry: site.country,
+    postalCode: "170521",
+  },
+  areaServed: `${site.city}, ${site.country}`,
+  sameAs: [site.social.facebook, site.social.instagram],
+};
 
   return (
     <Helmet>

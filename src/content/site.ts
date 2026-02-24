@@ -3,8 +3,11 @@ export const site = {
   email: "tecnictels@gmail.com",
   city: "Quito",
   country: "Ecuador",
-  phoneLocal: "0987007856",
-  phoneE164: "593987007856", // Ecuador +593, sin 0 inicial
+  phoneLocal: "0989941174",
+  phoneE164: "593989941174", // Ecuador +593, sin 0 inicial
+  //dirección real o aproximada, para SEO local. Luego podemos agregar un mapa de Google Maps con el pin exacto.
+  address: "Atacames 25-77, Quito 170521",
+  hoursLabel: "Lun–Dom: 07:00–19:00",
   whatsappMessage:
     "Hola Tecnictels, necesito una cotización. ¿Me pueden ayudar?",
   social: {
