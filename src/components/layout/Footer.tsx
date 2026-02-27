@@ -99,6 +99,28 @@ function FooterLink({ to, children }: { to: string; children: React.ReactNode })
   );
 }
 
+function FooterA({
+  href,
+  children,
+  external,
+}: {
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+      className="group relative inline-flex text-sm theme-muted transition-colors duration-200 hover:text-neutral-950 dark:hover:text-white"
+    >
+      {children}
+      <span className="absolute -bottom-1 left-0 h-[2px] w-0 rounded-full bg-gradient-to-r from-emerald-500 to-orange-500 transition-all duration-300 group-hover:w-full" />
+    </a>
+  );
+}
+
 export function Footer() {
   const wa = `https://wa.me/${site.phoneE164}?text=${encodeURIComponent(site.whatsappMessage)}`;
   const tel = `tel:+${site.phoneE164}`;
@@ -188,27 +210,24 @@ export function Footer() {
                 <FooterLink to="/servicios#cctv">CCTV</FooterLink>
               </li>
               <li>
-                <FooterLink to="/servicios#control-acceso">Control de acceso</FooterLink>
+                <FooterLink to="/servicios#seguridad-electronica">Seguridad electrónica</FooterLink>
               </li>
               <li>
-                <FooterLink to="/servicios#redes-telecom">Redes y telecom</FooterLink>
+                <FooterLink to="/servicios#control-acceso">Control de acceso</FooterLink>
               </li>
               <li>
                 <FooterLink to="/servicios#deteccion-incendios">Detección de incendios</FooterLink>
               </li>
               <li>
+                <FooterLink to="/servicios#redes-telecom">Redes y telecom</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/servicios#cableado-estructurado">Cableado estructurado</FooterLink>
+              </li>
+              <li>
                 <FooterLink to="/servicios#instalaciones-electricas">Instalaciones eléctricas</FooterLink>
               </li>
             </ul>
-
-            <a
-              href={wa}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:opacity-95 active:scale-[0.99]"
-            >
-              Cotizar por WhatsApp
-            </a>
           </div>
 
           {/* Contact */}
@@ -220,45 +239,31 @@ export function Footer() {
                 <span className="mt-0.5 text-neutral-700 dark:text-white/80">
                   <IconLocation />
                 </span>
-                <a
-                  href={mapsDirections}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transition hover:text-neutral-950 dark:hover:text-white"
-                >
+                <FooterA href={mapsDirections} external>
                   {site.address}
-                </a>
+                </FooterA>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-neutral-700 dark:text-white/80">
                   <IconPhone />
                 </span>
-                <a href={tel} className="transition hover:text-neutral-950 dark:hover:text-white">
+                <FooterA href={tel}>
                   {site.phoneLocal}
-                </a>
+                </FooterA>
               </li>
 
               <li className="flex items-center gap-3">
                 <span className="text-neutral-700 dark:text-white/80">
                   <IconMail />
                 </span>
-                <a href={mail} className="transition hover:text-neutral-950 dark:hover:text-white">
+                <FooterA href={mail}>
                   {site.email}
-                </a>
+                </FooterA>
               </li>
             </ul>
 
             <p className="mt-6 text-xs font-semibold text-neutral-500 dark:text-white/60">{site.hoursLabel}</p>
-
-            <div
-              className="mt-4 inline-flex items-center gap-2 rounded-full border theme-border bg-neutral-50 px-3 py-1 text-xs font-semibold text-neutral-700
-              dark:bg-white/5 dark:text-white/80"
-            >
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              <span className="h-2 w-2 rounded-full bg-orange-500" />
-              Atención profesional
-            </div>
           </div>
         </div>
 
