@@ -214,7 +214,7 @@ export function AboutPage() {
       </section>
 
       {/* QUIÉNES SOMOS */}
-      <section className="bg-transparent">
+      <section id="quienes-somos" className="bg-transparent">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
             <motion.div variants={fadeUp}>
@@ -244,7 +244,7 @@ export function AboutPage() {
       </section>
 
       {/* MISIÓN / VISIÓN */}
-      <section className="border-t theme-border bg-neutral-50 dark:bg-white/5">
+      <section  id="mision-vision" className="border-t theme-border bg-neutral-50 dark:bg-white/5">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid gap-6 md:grid-cols-2">
             <motion.div variants={fadeUp} className="rounded-3xl border theme-border theme-surface p-8 shadow-sm">
@@ -273,7 +273,7 @@ export function AboutPage() {
       </section>
 
       {/* VALORES */}
-      <section className="border-t theme-border bg-transparent">
+      <section id="valores" className="border-t theme-border bg-transparent">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
             <motion.div variants={fadeUp}>
@@ -299,7 +299,7 @@ export function AboutPage() {
       </section>
 
       {/* COBERTURA + IMPLEMENTACIONES */}
-      <section className="border-t theme-border bg-neutral-50 dark:bg-white/5">
+      <section id="cobertura" className="border-t theme-border bg-neutral-50 dark:bg-white/5">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
             <motion.div variants={fadeUp} className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
@@ -345,7 +345,7 @@ export function AboutPage() {
       </section>
 
       {/* CONFIANZA / MARCAS (SOLO LOGOS PREMIUM) */}
-      <section className="border-t theme-border bg-transparent">
+      <section id="marcas" className="border-t theme-border bg-transparent">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
             <motion.div variants={fadeUp} className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
