@@ -11,16 +11,12 @@ import {
   ClipboardList,
   Cpu,
   Eye,
-  Fingerprint,
-  Flame,
   Globe2,
   HeartHandshake,
   Network,
   PhoneCall,
   ShieldCheck,
-  Sparkles,
   Target,
-  Zap,
 } from "lucide-react";
 
 import { Seo } from "../../lib/seo";
