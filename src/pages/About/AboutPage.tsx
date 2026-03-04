@@ -17,6 +17,11 @@ import {
   PhoneCall,
   ShieldCheck,
   Target,
+  // ✅ Added for MicroFeature usage
+  Fingerprint,
+  Flame,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 
 import { Seo } from "../../lib/seo";
@@ -274,7 +279,10 @@ export function AboutPage() {
 
         <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
           <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-3xl">
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85">
+            <motion.div
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
+            >
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
               <span className="h-2 w-2 rounded-full bg-orange-400" />
               Empresa de tecnología e infraestructura
@@ -315,10 +323,7 @@ export function AboutPage() {
             </motion.div>
 
             {/* micro highlights (no saturado) */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <motion.div variants={fadeUp} className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-white/85 backdrop-blur">
                 <div className="flex items-center gap-2 text-sm font-semibold">
                   <ShieldCheck className="h-4 w-4 text-emerald-300" />
@@ -374,10 +379,7 @@ export function AboutPage() {
                   tu sistema sea más estable, más fácil de mantener y listo para crecer.
                 </p>
 
-                <motion.ul
-                  variants={stagger}
-                  className="mt-6 space-y-2 text-sm text-neutral-700 dark:text-white/75"
-                >
+                <motion.ul variants={stagger} className="mt-6 space-y-2 text-sm text-neutral-700 dark:text-white/75">
                   {[
                     "Instalación ordenada y estética (canalización y terminaciones).",
                     "Protección eléctrica y buenas prácticas.",
@@ -412,7 +414,29 @@ export function AboutPage() {
               <div className="grid gap-4">
                 <ImgCard src="/images/team.jpg" alt="Equipo Tecnictels" className="h-[320px] md:h-[420px]" />
 
-                
+                {/* ✅ USE MicroFeature so TS won't fail */}
+                <div className="grid gap-4 rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5">
+                  <MicroFeature
+                    icon={<Fingerprint className="h-5 w-5" />}
+                    title="Seguridad primero"
+                    desc="Buenas prácticas, cableado ordenado y reducción de riesgos."
+                  />
+                  <MicroFeature
+                    icon={<Zap className="h-5 w-5" />}
+                    title="Implementación eficiente"
+                    desc="Planificación, instalación y pruebas con entrega clara."
+                  />
+                  <MicroFeature
+                    icon={<Sparkles className="h-5 w-5" />}
+                    title="Acabado profesional"
+                    desc="Terminaciones limpias, estética y documentación."
+                  />
+                  <MicroFeature
+                    icon={<Flame className="h-5 w-5" />}
+                    title="Soporte real"
+                    desc="Acompañamiento post-instalación y mantenimiento."
+                  />
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -480,26 +504,10 @@ export function AboutPage() {
             </motion.div>
 
             <motion.div variants={fadeUp} className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <InfoBlock
-                icon={<BadgeCheck className="h-5 w-5" />}
-                title="Calidad"
-                desc="Materiales y ejecución profesional con pruebas."
-              />
-              <InfoBlock
-                icon={<ShieldCheck className="h-5 w-5" />}
-                title="Responsabilidad"
-                desc="Cumplimiento, seguridad y orden en obra."
-              />
-              <InfoBlock
-                icon={<ClipboardList className="h-5 w-5" />}
-                title="Transparencia"
-                desc="Comunicación clara y documentación."
-              />
-              <InfoBlock
-                icon={<HeartHandshake className="h-5 w-5" />}
-                title="Soporte"
-                desc="Acompañamiento y mantenimiento cuando lo necesites."
-              />
+              <InfoBlock icon={<BadgeCheck className="h-5 w-5" />} title="Calidad" desc="Materiales y ejecución profesional con pruebas." />
+              <InfoBlock icon={<ShieldCheck className="h-5 w-5" />} title="Responsabilidad" desc="Cumplimiento, seguridad y orden en obra." />
+              <InfoBlock icon={<ClipboardList className="h-5 w-5" />} title="Transparencia" desc="Comunicación clara y documentación." />
+              <InfoBlock icon={<HeartHandshake className="h-5 w-5" />} title="Soporte" desc="Acompañamiento y mantenimiento cuando lo necesites." />
             </motion.div>
           </motion.div>
         </div>
@@ -593,8 +601,6 @@ export function AboutPage() {
           >
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div className="max-w-2xl">
-
-
                 <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">¿Trabajamos tu proyecto?</h2>
 
                 <p className="mt-2 text-sm text-white/80 md:text-base dark:text-white/70">
