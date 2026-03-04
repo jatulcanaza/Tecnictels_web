@@ -300,7 +300,9 @@ export function ContactPage() {
                     <h2 className="mt-2 text-2xl font-bold tracking-tight text-neutral-950 dark:text-white md:text-3xl">
                       Solicitar cotización
                     </h2>
-                    <p className="mt-3 text-sm theme-muted md:text-base">Completa los datos y te contactamos lo antes posible.</p>
+                    <p className="mt-3 text-sm theme-muted md:text-base">
+                      Completa los datos y te contactamos lo antes posible.
+                    </p>
                   </div>
 
                   <div className="hidden md:block">
@@ -316,7 +318,7 @@ export function ContactPage() {
                   Consejo: mientras más detalle envíes, más precisa será la cotización.
                 </div>
 
-                <form className="mt-6 space-y-4" action="https://formsubmit.co/tecnictels@gmail.com" method="POST">
+                <form className="mt-6 space-y-4" action="https://formsubmit.co/tulcanazajuan6@gmail.com" method="POST">
                   <input type="hidden" name="_subject" value="Nuevo contacto desde Tecnictels Web" />
                   <input type="hidden" name="_captcha" value="true" />
                   <input type="hidden" name="_template" value="table" />
@@ -359,35 +361,74 @@ export function ContactPage() {
                       />
                     </div>
 
+                    {/* ✅ SELECT ARREGLADO para modo oscuro/claro */}
                     <div className="md:col-span-2">
                       <label className="text-xs font-semibold theme-muted">Servicio</label>
                       <select
                         name="servicio"
                         required
                         defaultValue=""
-                        className="
-                           mt-2 w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm outline-none transition
-                            text-neutral-900 appearance-none
-                            focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10
-                            dark:border-white/10 dark:bg-white/5 dark:text-white
-                            dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10
-                            dark:[color-scheme:dark]
-                          "
+                        className="mt-2 w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-900 outline-none transition appearance-none
+                          focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10
+                          dark:border-white/10 dark:bg-white/5 dark:text-white
+                          dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10
+                          dark:[color-scheme:dark]"
                       >
-                        <option value="" disabled>
+                        <option value="" disabled className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white">
                           Selecciona un servicio
                         </option>
 
-                        <option value="CCTV">CCTV</option>
-                        <option value="Control de acceso">Control de acceso</option>
-                        <option value="Detección de incendios">Detección de incendios</option>
-                        <option value="Alarmas">Alarmas</option>
-                        <option value="Seguridad electrónica">Seguridad electrónica</option>
-                        <option value="Redes y telecomunicaciones">Redes y telecomunicaciones</option>
-                        <option value="Cableado estructurado / Data Center">Cableado estructurado / Data Center</option>
-                        <option value="Instalaciones eléctricas">Instalaciones eléctricas</option>
-                        <option value="UPS / Sistemas de tierra">UPS / Sistemas de tierra</option>
-                        <option value="Otro">Otro (especificar en el mensaje)</option>
+                        <option value="CCTV" className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white">
+                          CCTV
+                        </option>
+                        <option
+                          value="Control de acceso"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Control de acceso
+                        </option>
+                        <option
+                          value="Detección de incendios"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Detección de incendios
+                        </option>
+                        <option value="Alarmas" className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white">
+                          Alarmas
+                        </option>
+                        <option
+                          value="Seguridad electrónica"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Seguridad electrónica
+                        </option>
+                        <option
+                          value="Redes y telecomunicaciones"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Redes y telecomunicaciones
+                        </option>
+                        <option
+                          value="Cableado estructurado / Data Center"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Cableado estructurado / Data Center
+                        </option>
+                        <option
+                          value="Instalaciones eléctricas"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          Instalaciones eléctricas
+                        </option>
+                        <option
+                          value="UPS / Sistemas de tierra"
+                          className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white"
+                        >
+                          UPS / Sistemas de tierra
+                        </option>
+                        <option value="Otro" className="bg-white text-neutral-900 dark:bg-[#0b0f14] dark:text-white">
+                          Otro (especificar en el mensaje)
+                        </option>
                       </select>
                     </div>
 
@@ -422,7 +463,7 @@ export function ContactPage() {
                   <div className="mt-6 rounded-2xl border theme-border theme-surface p-4">
                     <p className="text-sm font-semibold text-neutral-950 dark:text-white">¿Prefieres WhatsApp?</p>
                     <p className="mt-1 text-sm theme-muted">
-                      Podemos responder más rápido por WhatsApp. Puedes abrir el chat en un clic.
+                      Podemos responder más rápido por WhatsApp. Puedes abrir el chat dando clic.
                     </p>
                     <a
                       href={waDefault}
