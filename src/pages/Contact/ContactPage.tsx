@@ -1,3 +1,4 @@
+// src/pages/Contact/ContactPage.tsx
 import { motion } from "framer-motion";
 import { Seo } from "../../lib/seo";
 import { site } from "../../content/site";
@@ -63,7 +64,11 @@ function IconLocation(props: { className?: string }) {
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
-      <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" className="stroke-current" strokeWidth="1.8" />
+      <path
+        d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"
+        className="stroke-current"
+        strokeWidth="1.8"
+      />
     </svg>
   );
 }
@@ -94,28 +99,44 @@ export function ContactPage() {
         path="/contacto"
       />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b theme-border bg-transparent">
+      {/* HERO (premium con imagen) */}
+      <section className="relative w-full overflow-hidden border-b border-neutral-200 bg-neutral-950 dark:border-white/10">
+        {/* Glows */}
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-28 left-1/2 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
-          <div className="absolute -bottom-28 left-1/3 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
+          <div className="absolute -top-40 left-1/2 h-80 w-[56rem] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
+          <div className="absolute -bottom-44 left-1/3 h-80 w-[56rem] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-20">
+        {/* Background image + overlays */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero-contact.jpg"
+            alt="Contacto Tecnictels"
+            className="h-full w-full object-cover opacity-25"
+            loading="eager"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/35" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-6 md:py-20">
           <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-3xl">
             <motion.p
               variants={fadeUp}
-              className="inline-flex items-center gap-2 rounded-full border theme-border theme-surface px-3 py-1 text-xs font-semibold theme-muted"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white/85"
             >
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
               Atención en {site.city}, {site.country}
             </motion.p>
 
-            <motion.h1 variants={fadeUp} className="mt-4 text-3xl font-bold tracking-tight text-neutral-950 dark:text-white md:text-5xl">
-              Contáctanos y <span className="theme-muted">cotiza tu proyecto</span>.
+            <motion.h1 variants={fadeUp} className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              Contáctanos y <span className="text-white/75">cotiza tu proyecto</span>.
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="mt-4 text-base theme-muted md:text-lg">
+            <motion.p variants={fadeUp} className="mt-4 text-base text-white/80 md:text-lg">
               Te respondemos por WhatsApp o correo. Envíanos tu requerimiento y te ayudamos con la mejor solución.
             </motion.p>
 
@@ -135,7 +156,7 @@ export function ContactPage() {
 
               <a
                 href="#form"
-                className="rounded-full border theme-border theme-surface px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-50 dark:text-white dark:hover:bg-white/10"
+                className="rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15 active:scale-[0.99]"
               >
                 Ir al formulario
               </a>
@@ -366,8 +387,6 @@ export function ContactPage() {
                         <option value="Cableado estructurado / Data Center">Cableado estructurado / Data Center</option>
                         <option value="Instalaciones eléctricas">Instalaciones eléctricas</option>
                         <option value="UPS / Sistemas de tierra">UPS / Sistemas de tierra</option>
-
-                        {/* ✅ Nuevo */}
                         <option value="Otro">Otro (especificar en el mensaje)</option>
                       </select>
                     </div>
@@ -395,12 +414,16 @@ export function ContactPage() {
                       Enviar solicitud
                     </button>
 
-                    <p className="text-xs theme-muted">Al enviar, aceptas ser contactado por Tecnictels para dar seguimiento a tu solicitud.</p>
+                    <p className="text-xs theme-muted">
+                      Al enviar, aceptas ser contactado por Tecnictels para dar seguimiento a tu solicitud.
+                    </p>
                   </div>
 
                   <div className="mt-6 rounded-2xl border theme-border theme-surface p-4">
                     <p className="text-sm font-semibold text-neutral-950 dark:text-white">¿Prefieres WhatsApp?</p>
-                    <p className="mt-1 text-sm theme-muted">Podemos responder más rápido por WhatsApp. Puedes abrir el chat en un clic.</p>
+                    <p className="mt-1 text-sm theme-muted">
+                      Podemos responder más rápido por WhatsApp. Puedes abrir el chat en un clic.
+                    </p>
                     <a
                       href={waDefault}
                       target="_blank"
