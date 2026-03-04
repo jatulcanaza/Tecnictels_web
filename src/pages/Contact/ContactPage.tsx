@@ -463,7 +463,7 @@ export function ContactPage() {
                   <div className="mt-6 rounded-2xl border theme-border theme-surface p-4">
                     <p className="text-sm font-semibold text-neutral-950 dark:text-white">¿Prefieres WhatsApp?</p>
                     <p className="mt-1 text-sm theme-muted">
-                      Podemos responder más rápido por WhatsApp. Puedes abrir el chat en un clic.
+                      Podemos responder más rápido por WhatsApp. Puedes abrir el chat dando clic.
                     </p>
                     <a
                       href={waDefault}
