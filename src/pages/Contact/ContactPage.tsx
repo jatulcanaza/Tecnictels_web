@@ -316,7 +316,7 @@ export function ContactPage() {
                   Consejo: mientras más detalle envíes, más precisa será la cotización.
                 </div>
 
-                <form className="mt-6 space-y-4" action="https://formsubmit.co/tecnictels@gmail.com" method="POST">
+                <form className="mt-6 space-y-4" action="https://formsubmit.co/tulcanazajuan6@gmail.com" method="POST">
                   <input type="hidden" name="_subject" value="Nuevo contacto desde Tecnictels Web" />
                   <input type="hidden" name="_captcha" value="true" />
                   <input type="hidden" name="_template" value="table" />
