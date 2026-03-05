@@ -33,6 +33,8 @@ export function Seo({ title, description, path = "/", image = "/brand/logo.png" 
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      
+      <meta name="google-site-verification" content="JOXL8oCA6kAv5KYzC6bDr6qfox-clVgqjSk0xhMkxXI" />
 
       <link rel="canonical" href={canonical} />
 
