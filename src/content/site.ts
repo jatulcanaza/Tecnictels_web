@@ -14,5 +14,5 @@ export const site = {
     facebook: "https://www.facebook.com/tecnictels",
     instagram: "https://www.instagram.com/tecnictels/",
   },
-  domain: "tecnictels-web.vercel.app", // si aún no tienen dominio, lo cambiamos luego
+  domain: "tecnictels.vercel.app", // si aún no tienen dominio, lo cambiamos luego
 };
