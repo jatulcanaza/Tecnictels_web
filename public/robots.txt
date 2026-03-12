@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tecnictels-web.vercel.app/sitemap.xml
+Sitemap: https://tecnictels.vercel.app/sitemap.xml
